@@ -1,0 +1,1 @@
+ModLoader.SetupFileHook( "lua/GUIMarineBuyMenu.lua", "lua/armory/GUIMarineBuyMenu.lua", "post" )

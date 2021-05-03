@@ -1,0 +1,2 @@
+This mod adds weapon/equipment counters to the armory and proto lab.
+It helps to organize pushes because now you see exactly which weapons your team mates have so you don't end up with a team of flamethrowers or rail exos.

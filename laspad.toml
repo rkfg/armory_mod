@@ -1,0 +1,14 @@
+# Indicates the version of laspad's configuration used
+version = 1
+
+# These mods are included in your mod
+# You probably want to remove these examples
+dependencies = [
+]
+
+[branch.master]                    # branch name, "master" is the default
+name            = "Weapon count in armory"         # the name which will be shown on the workshop
+tags            = ["Gameplay Tweak"] # tags
+autodescription = true             # whether laspad should automatically include things in your description.
+description     = "desc.txt"      # where is the description?
+preview         = "2021-05-02_23-25-41.jpg"
