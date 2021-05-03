@@ -167,7 +167,7 @@ function GUIMarineBuyMenu:_InitializeItemButtons()
         self.menu:AddChild(graphicItem)
         table.insert(self.itemButtons, { Button = graphicItem, Highlight = graphicItemActive,
          TechId = itemTechId, Cost = itemCost, ResourceIcon = costIcon, Arrow = selectedArrow,
-         OthersCount = otherWeapons } )
+         OthersCount = otherWeapons, PlayerIcon = playerIcon } )
     
     end
     
@@ -182,6 +182,7 @@ local statusToWeapon = {
     [kPlayerStatus.HeavyMachineGun] = kTechId.HeavyMachineGun,
     [kPlayerStatus.Flamethrower] = kTechId.Flamethrower,
     [kPlayerStatus.Shotgun] = kTechId.Shotgun,
+    [kPlayerStatus.Exo] = kTechId.DualMinigunExosuit,
 }
 
 function GUIMarineBuyMenu:_UpdateItemButtons(deltaTime)
@@ -247,6 +248,9 @@ function GUIMarineBuyMenu:_UpdateItemButtons(deltaTime)
             item.ResourceIcon:SetColor(useColor)
             item.Arrow:SetIsVisible(self.selectedItem == item.TechId)
             item.OthersCount:SetText(tostring(itemCounts[item.TechId] or "0"))
+            local railExo = item.TechId == kTechId.DualRailgunExosuit
+            item.OthersCount:SetIsVisible(not railExo)
+            item.PlayerIcon:SetIsVisible(not railExo)
         end
     end
 
