@@ -189,7 +189,7 @@ function GUIMarineBuyMenu:_UpdateItemButtons(deltaTime)
     
     if self.itemButtons then
         local itemCounts = {}
-        for i, playerInfo in ientitylist(Shared.GetEntitiesWithClassname("PlayerInfoEntity")) do
+        for _, playerInfo in ientitylist(Shared.GetEntitiesWithClassname("PlayerInfoEntity")) do
             for _, techId in ipairs(GetTechIdsFromBitMask(playerInfo.currentTech)) do
                 if techId == kTechId.Mine then
                     techId = kTechId.LayMines
@@ -247,9 +247,7 @@ function GUIMarineBuyMenu:_UpdateItemButtons(deltaTime)
             item.Cost:SetColor(useColor)
             item.ResourceIcon:SetColor(useColor)
             item.Arrow:SetIsVisible(self.selectedItem == item.TechId)
-            if itemCounts[item.TechId] then
-                item.OthersCount:SetText(tostring(itemCounts[item.TechId]))
-            end
+            item.OthersCount:SetText(tostring(itemCounts[item.TechId] or "0"))
         end
     end
 
