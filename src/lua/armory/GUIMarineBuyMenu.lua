@@ -1,7 +1,7 @@
 local smallIconHeight = 64
 local smallIconWidth = 128
 
-GUIMarineBuyMenu.kBuildMenuTexture = 'ui/marine_buildmenu.dds'
+GUIMarineBuyMenu.kOthersIconTexture = 'ui/menu/friends_icon.dds'
 --
 -- Checks if the mouse is over the passed in GUIItem and plays a sound if it has just moved over.
 --
@@ -144,8 +144,7 @@ function GUIMarineBuyMenu:_InitializeItemButtons()
         playerIcon:SetSize(Vector(GUIMarineBuyMenu.kResourceIconWidth * 0.8, GUIMarineBuyMenu.kResourceIconHeight * 0.8, 0))
         playerIcon:SetAnchor(GUIItem.Left, GUIItem.Bottom)
         playerIcon:SetPosition(Vector(0, -GUIMarineBuyMenu.kResourceIconHeight * 0.5, 0))
-        playerIcon:SetTexture(GUIMarineBuyMenu.kBuildMenuTexture)
-        playerIcon:SetTexturePixelCoordinates(0, 400, 80, 480)
+        playerIcon:SetTexture(GUIMarineBuyMenu.kOthersIconTexture)
         playerIcon:SetColor(GUIMarineBuyMenu.kTextColor)
 
         local otherWeapons = GUIManager:CreateTextItem()
