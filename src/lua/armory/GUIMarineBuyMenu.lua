@@ -182,7 +182,6 @@ local statusToWeapon = {
     [kPlayerStatus.HeavyMachineGun] = kTechId.HeavyMachineGun,
     [kPlayerStatus.Flamethrower] = kTechId.Flamethrower,
     [kPlayerStatus.Shotgun] = kTechId.Shotgun,
-    [kPlayerStatus.Exo] = kTechId.DualMinigunExosuit,
 }
 
 function GUIMarineBuyMenu:_UpdateItemButtons(deltaTime)
@@ -200,6 +199,11 @@ function GUIMarineBuyMenu:_UpdateItemButtons(deltaTime)
             if w then
                 itemCounts[w] = itemCounts[w] and itemCounts[w] + 1 or 1
             end
+        end
+        local teamInfo = GetTeamInfoEntity(kTeam1Index)
+        if teamInfo then
+            itemCounts[kTechId.DualMinigunExosuit] = teamInfo.numMinigunExos
+            itemCounts[kTechId.DualRailgunExosuit] = teamInfo.numRailgunExos
         end
         for i, item in ipairs(self.itemButtons) do
         
@@ -248,9 +252,6 @@ function GUIMarineBuyMenu:_UpdateItemButtons(deltaTime)
             item.ResourceIcon:SetColor(useColor)
             item.Arrow:SetIsVisible(self.selectedItem == item.TechId)
             item.OthersCount:SetText(tostring(itemCounts[item.TechId] or "0"))
-            local railExo = item.TechId == kTechId.DualRailgunExosuit
-            item.OthersCount:SetIsVisible(not railExo)
-            item.PlayerIcon:SetIsVisible(not railExo)
         end
     end
 
