@@ -11,4 +11,4 @@ name            = "Weapon count in armory"         # the name which will be show
 tags            = ["Gameplay Tweak"] # tags
 autodescription = true             # whether laspad should automatically include things in your description.
 description     = "desc.txt"      # where is the description?
-preview         = "2021-05-02_23-25-41.jpg"
+preview         = "2021-05-03_17-16-16.jpg"
